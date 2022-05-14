@@ -1,0 +1,98 @@
+{
+  "person": [],
+  "todos": [
+    {
+      "status": 0,
+      "progress": "3",
+      "person": [
+        "person_1"
+      ],
+      "name": "test2",
+      "prog": "normal",
+      "id": 2
+    },
+    {
+      "status": 2,
+      "progress": "1",
+      "person": [
+        "person_1",
+        "person_3"
+      ],
+      "name": "salom",
+      "prog": "minor",
+      "id": 3
+    },
+    {
+      "status": 0,
+      "progress": "2",
+      "person": [
+        "person_1",
+        "person_3",
+        "person_4"
+      ],
+      "name": "asfevdwdqwd",
+      "prog": "minor",
+      "id": 4
+    },
+    {
+      "status": 1,
+      "progress": 3,
+      "person": [
+        "person_1",
+        "person_4"
+      ],
+      "name": "coffe tayyorlash",
+      "prog": "normal",
+      "id": 5
+    },
+    {
+      "status": 1,
+      "progress": 0,
+      "person": [
+        "person_1",
+        "person_3",
+        "person_2"
+      ],
+      "name": "dars qilinglar",
+      "prog": "critical",
+      "id": 6
+    },
+    {
+      "status": 1,
+      "progress": 0,
+      "person": [
+        "person_1",
+        "person_3",
+        "person_2",
+        "person_4"
+      ],
+      "prog": "critical",
+      "name": "salom",
+      "id": 7
+    },
+    {
+      "status": 1,
+      "progress": 0,
+      "person": [
+        "person_1",
+        "person_3"
+      ],
+      "name": "task4",
+      "prog": "minor",
+      "id": 8
+    },
+    {
+      "status": 1,
+      "progress": 0,
+      "person": [
+        "person_2"
+      ],
+      "name": "bir nima uchun",
+      "prog": "critical",
+      "id": 9
+    }
+  ],
+  "comments":[
+    
+  ]
+}
