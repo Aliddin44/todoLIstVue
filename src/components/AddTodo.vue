@@ -23,6 +23,7 @@
       <button class="create__btn" @click="create()">crate todo</button>
      </div>
   </div>
+  
 </template>
 
 <script>
@@ -36,6 +37,9 @@ data(){
             person:[]
         }
     }
+},
+computed:{
+   
 },
 methods:{
     create(){

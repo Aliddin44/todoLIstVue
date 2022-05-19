@@ -12,12 +12,11 @@
       <option value="2">cancelled</option>
       <option value="3">completed</option>
       </select>
-
-
       <select name="" id="" v-model="listLocal.prog">
       <option value="normal">Normal</option>
       <option value="critical">Critical</option>
-      <option value="minor">Minor</option></select>
+      <option value="minor">Minor</option>
+      </select>
      <div class="flex">
           <label for="person_1">person_1
       <input type="checkbox"  v-model="listLocal.person" id="person_1" value="person_1"></label>
@@ -56,10 +55,15 @@ listLocal: {
 
 methods:{
       
-    
 
     save(){
-        this.$store.dispatch('editTask',this.todos)
+        if(this.listLocal.progress== 2 || this.listLocal.progress == 3 ){
+            this.listLocal.status = 1
+        }
+        if(this.listLocal.progress== 0 || this.listLocal.progress == 1 ){
+            this.listLocal.status = 0
+        }
+        this.$store.dispatch('deleteTodos',this.todos)
         this.$emit('active',false)
     }
 },
@@ -68,6 +72,16 @@ methods:{
 </script>
 
 <style lang="scss">
+.row{}
+.col-lg-3{
+    width: 20%;
+    max-width: 20%;
+    flex-basis: 20%;
+    padding: 15px;
+    height: 100%;
+    position: relative;
+    top: 0;
+}
 .AddTodo{
     input[type='text'],select{
         height: 40px;

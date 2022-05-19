@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import comment from '@/store/comment'
 export default createStore({
   state: {
     todos:[],
@@ -64,9 +65,7 @@ export default createStore({
         }
       })
     },
-    editTodo(state,payload){
-      state.todos = payload
-    }
+    
   },
   actions: {
     newTodos(context,payload){
@@ -86,13 +85,9 @@ export default createStore({
        }
       })
     },
-    editTask(context,payload){
-      axios.put('http://localhost:3000/todos/'+payload.id,payload).then(res=>{
-        context.commit('editTodo',res.data)
-        console.log(payload);
-      })
-    }
+    
   },
   modules: {
+    comment
   }
   })

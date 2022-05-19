@@ -1,14 +1,14 @@
 <template>
   <div class="oneTask">
       <div class="box">
-          <div @click=" $emit('active',false)" class="exit">X</div>
+          <div @click=" exit()" class="exit">X</div>
           <div class="title">comments ||{{ todos.name}}</div>
           <div class="flex">
               <div class="status">
-              status: {{todos.status}}
+              status: {{(todos.status == 0)? 'onhold' : 'complated'}}
           </div>
           <div class="prog" >
-            progress:  {{progress[0]}}
+            progress:  {{progress[todos.progress]}}
           </div>
           <div class="person">
              <img :src="require(`@/assets/${ava}.png`) " alt="" v-for="(ava,index) of todos.person" :key="index">
@@ -20,10 +20,11 @@
     v-model:value="comment.comment"
     
   />
-  <div class="btn">submit</div>
+  <div class="btn" @click="add()">submit</div>
       </div>
       
   </div>
+
 </template>
 
 <script>
@@ -36,9 +37,22 @@ data(){
     return{
         progress:['pending','in_progress','cancelled','completed'],
         comment:{
-            date:new Date()
+            date:Date.now()
         }
     }
+},
+methods:{
+exit(){
+    this.$emit('active',false) 
+    this.comment={}
+},
+add(){
+    this.$store.dispatch('addComment', this.comment)
+    this.comment={
+        
+    }
+    this.$emit('active',false) 
+}
 },
 components: {
     quillEditor
@@ -132,5 +146,19 @@ components: {
     background-color: #fff;
     position: relative;
     }
+}
+.ql-editor {
+    box-sizing: border-box;
+    line-height: 1.42;
+    height: 167px;
+    outline: none;
+    overflow: auto;
+    padding: 12px 15px;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 </style>

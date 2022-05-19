@@ -18,7 +18,9 @@
        Comleted
       </Todo>
       </div>
-      <div class="col-lg-3"></div>
+      <div class="col-lg-3">
+<show-message :comments="comments"></show-message>
+      </div>
     </div>
   </nav>
  
@@ -27,6 +29,7 @@
 import headerwiev from '@/components/HeaderPage.vue'
 import Todo from '@/components/TodosVue.vue'
 import AddTodo from '@/components/AddTodo.vue'
+import showMessage from '@/components/ShowMessage.vue'
 
 
 export default({
@@ -41,17 +44,27 @@ export default({
       
       return this.$store.getters.OnHold
     },
+    getOneTodo(){
+      
+      return this.$store.dispatch('getOneTodo')
+    },
     CompletedTodo(){
      return  this.$store.getters.Completed
     },
     AllTodos(){
       return this.$store.getters.countTodo
+    },
+     comments(){
+
+       
+        return  this.$store.getters.allComment 
     }
   },
   components:{
     headerwiev,
     Todo,
     AddTodo,
+    showMessage
   },
   methods:{
   add(){
@@ -60,6 +73,11 @@ export default({
   },
   created(){
     this.$store.dispatch('getAllTodos')
+    this.$store.dispatch('getLastComment')
+    // this.$store.dispatch('getLastComments')
+    
+    console.log(this.$store.dispatch('getLastComment'));
+    
   }
 })
 </script>
@@ -106,7 +124,7 @@ export default({
   }
 }
 nav {
-  padding: 40px;
+  padding: 10px;
 }
 
 nav a {
